@@ -89,21 +89,6 @@ function displayWeather(data) {
     sunSet.textContent = sunsetTime;
 }
 
-// Get the user's location and fetch weather
-function getLocationAndWeather() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-            const { latitude, longitude } = position.coords;
-            getWeatherByLocation(latitude, longitude);
-        }, error => {
-            console.log("Geolocation error:", error);
-            alert("Geolocation is not enabled or supported.");
-        });
-    } else {
-        alert("Geolocation is not supported by this browser.");
-    }
-}
-
 // Fetch weather on search button click
 btn.addEventListener('click', () => {
     checkWeather(cityInput.value);
